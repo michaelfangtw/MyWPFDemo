@@ -1,0 +1,18 @@
+﻿d:
+cd D:\git\MyWPFDemo
+echo "# MyWPFDemo" >> README.md
+
+#建立local resposity (建立.git目錄,commit錯可還原此目錄)
+git init  
+#新增或修改時須執行(git add .)把workspace資料加到staging
+git add .
+#顯示狀態(顯示異動哪些檔案)
+git status
+#把staging 資料commit到 local Repo ,並加上備註
+git commit -m "first commit"
+#將本地的respo與遠端MyMSMQ respo 結合
+git remote add MyWPFDemo https://github.com/michaelfangtw/MyWPFDemo.git
+
+#更新到遠端Resposity
+#git push 
+git push --set-upstream MyWPFDemo master
