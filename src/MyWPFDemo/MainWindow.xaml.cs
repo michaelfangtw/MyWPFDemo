@@ -139,5 +139,27 @@ namespace MyWPFDemo
             int receiveCount = ReceiveMessage();
             ShowMessage("接收筆數:{0}", receiveCount);
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            // Initializing Open Dialog
+            Gat.Controls.OpenDialogView openDialog = new Gat.Controls.OpenDialogView();
+            Gat.Controls.OpenDialogViewModel vm = (Gat.Controls.OpenDialogViewModel)openDialog.DataContext;
+            // Adding file filter
+            vm.AddFileFilterExtension(".jpg");
+            vm.AddFileFilterExtension(".txt");
+
+            // Show dialog and take result into account
+            bool? result = vm.Show();
+            if (result == true)
+            {
+                // Get selected file path
+                txtFile.Text = vm.SelectedFilePath;
+            }
+            else
+            {
+                txtFile.Text = string.Empty;
+            }
+        }
     }
 }
